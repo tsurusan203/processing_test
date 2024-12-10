@@ -45,12 +45,12 @@ void draw(){
   orb.display();
   // Check walls
   orb.checkWallCollision();
+  orb.checkCeilingCollision();
 
   // Check against all the ground segments
   for (int i=0; i<segments; i++){
     orb.checkGroundCollision(ground[i]);
   }
-
   
   // Draw ground
   fill(127);
@@ -64,4 +64,8 @@ void draw(){
   endShape(CLOSE);
 
 
+}
+
+void mousePressed() {
+  orb.bounce();
 }

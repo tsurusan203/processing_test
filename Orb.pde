@@ -36,6 +36,13 @@ class Orb {
       velocity.x *= -damping;
     }
   }
+  
+  void checkCeilingCollision() {
+    if (position.y < r) {
+      position.y = r; // 上端で位置を修正
+      velocity.y *= -damping; // 速度を反転
+    }
+  }
 
   void checkGroundCollision(Ground groundSegment) {
 
@@ -75,4 +82,9 @@ class Orb {
     position.x = groundSegment.x + deltaX;
     position.y = groundSegment.y + deltaY;
   }
+  //addition
+  void bounce() {
+    velocity.y = -5;
+  }
+  //
 }
